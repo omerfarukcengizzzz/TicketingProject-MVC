@@ -34,8 +34,40 @@
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form>
 
+                                        <div class="form-row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="form-group">
+
+                                                    <label for="projectName" class="col-form-label">Project Name</label>
+                                                    <input id="projectName" type="text" class="form-control">
+
+                                                    <label for="projectCode" class="col-form-label">Project Code</label>
+                                                    <input id="projectCode" type="text" class="form-control">
+
+                                                    <label class="col-form-label">Assigned Manager</label>
+                                                    <select class="form-control">
+                                                        <option>Select</option>
+                                                    </select>
+
+                                                    <label class="col-form-label">Project Start Date</label>
+                                                    <input type="date" class="form-control">
+
+                                                    <label class="col-form-label">Project End Date</label>
+                                                    <input type="date" class="form-control">
+
+                                                    <label class="col-form-label">Project Details</label>
+                                                    <textarea class="form-control" rows="3"></textarea>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
 
                                     </form>
+
+                                    <p class="text-right">
+                                        <button class="btn btn-success" type="submit">Save</button>
+                                    </p>
                                     <!-- ------------------------FORM END----------------------------- -->
 
                                 </div>
@@ -62,11 +94,19 @@
                                         <table class="table table-striped">
                                             <thead>
                                             <tr>
-                                                <th scope="col"></th>
+                                                <th scope="col">Project Code</th>
+                                                <th scope="col">Project Name</th>
+                                                <th scope="col">Start / End Date</th>
+                                                <th scope="col">Manager</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>
