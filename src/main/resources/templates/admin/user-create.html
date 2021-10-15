@@ -26,16 +26,78 @@
 
                             <section class="panel panel-transparent">
                                 <header class="panel-heading">
-                                    <h2 class="panel-title">Project Create</h2>
+                                    <h2 class="panel-title">User Create</h2>
                                 </header>
 
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form>
+                                    <form th:action="@{/admin/user-create}" method="post">
 
+                                        <div class="form-row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+
+                                                    <label for="firstName" class="col-form-label">First Name</label>
+                                                    <input id="firstName" type="text" class="form-control"
+                                                           placeholder="John">
+
+                                                    <label for="emailAddress" class="col-form-label">Email
+                                                        Address</label>
+                                                    <input id="emailAddress" type="email" class="form-control"
+                                                           placeholder="jdoe@gmail.com">
+
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input id="password" type="password" class="form-control">
+
+                                                    <label class="col-form-label">Gender</label><br>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" name="radio-inline"
+                                                               class="custom-control-input">
+                                                        <span class="custom-control-label">Male</span>
+                                                    </label>
+                                                    <label class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" name="radio-inline"
+                                                               class="custom-control-input">
+                                                        <span class="custom-control-label">Female</span>
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+                                                <div class="form-group">
+
+                                                    <label for="lastName" class="col-form-label">Last Name</label>
+                                                    <input id="lastName" type="text" class="form-control"
+                                                           placeholder="Doe">
+
+                                                    <label for="mobileNumber" class="col-form-label">Mobile
+                                                        Number</label>
+                                                    <input id="mobileNumber" type="text" class="form-control"
+                                                           placeholder="0123456789">
+
+                                                    <label for="passwordConfirmation" class="col-form-label">Password
+                                                        Confirmation</label>
+                                                    <input id="passwordConfirmation" type="password"
+                                                           class="form-control">
+
+                                                    <label class="col-form-label">Role</label>
+                                                    <select class="form-control">
+                                                        <option>Select</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
 
                                     </form>
+
+                                    <p class="text-right">
+                                        <button class="btn btn-success" type="submit">Save</button>
+                                    </p>
+
                                     <!-- ------------------------FORM END----------------------------- -->
 
                                 </div>

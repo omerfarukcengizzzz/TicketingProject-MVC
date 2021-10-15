@@ -13,4 +13,9 @@ public class AdminController {
         return "/admin/project-create";
     }
 
+    @GetMapping("/user-create")
+    public String userCreate() {
+        return "/admin/user-create";
+    }
+
 }
