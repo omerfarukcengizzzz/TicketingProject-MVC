@@ -19,6 +19,7 @@ public class AdminController {
         return "/admin/user-create";
     }
 
+
     @PostMapping("/user-create/save")
     public String saveUser() {
         return "/admin/user-create";
