@@ -23,5 +23,4 @@ public class AdminController {
     public String saveUser() {
         return "/admin/user-create";
     }
-
 }
