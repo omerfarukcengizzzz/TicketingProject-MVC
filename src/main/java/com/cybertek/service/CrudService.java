@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface CrudService<T, ID> {
     // save
-    T save(T role);
+    T save(T obj);
 
     // findByID
     T findByID(ID id);
@@ -13,6 +13,6 @@ public interface CrudService<T, ID> {
     List<T> findAll();
 
     // delete
-    void delete(T role);
+    void delete(T obj);
     void deleteByID(ID id);
 }
