@@ -32,14 +32,13 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate th:action="@{/admin/user-create/save}" method="post" th:object="${user}">
+                                    <form class="needs-validation" novalidate method="post" th:action="@{/admin/user-create/save}" th:object="${user}">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstname" class="col-form-label">First Name</label>
                                                     <input id="firstname" type="text" placeholder="first name"
-                                                           class="form-control" required
-                                                           th:field="*{firstName}">
+                                                           class="form-control" th:field="*{firstName}" required>
                                                     <div class="invalid-feedback">
                                                         Please enter first name.
                                                     </div>
@@ -125,13 +124,13 @@
                                                     <label class="custom-control custom-radio custom-control-inline">
                                                         <input type="radio" name="radio-inline" checked=""
                                                                class="custom-control-input"
-                                                               th:field="*{gender}" th:value="Male"><span
+                                                               th:field="*{gender}" th:value="MALE"><span
                                                             class="custom-control-label">Male</span>
                                                     </label>
                                                     <label class="custom-control custom-radio custom-control-inline">
                                                         <input type="radio" name="radio-inline"
                                                                class="custom-control-input"
-                                                               th:field="*{gender}" th:value="Female"><span
+                                                               th:field="*{gender}" th:value="FEMALE"><span
                                                             class="custom-control-label">Female</span>
                                                     </label>
 
@@ -198,12 +197,12 @@
 
                                             <tbody>
 
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                            <tr th:each="user : ${userList}">
+                                                <td th:text="${user.firstName} + ' ' + ${user.lastName}"></td>
+                                                <td th:text="${user.userName}"></td>
+                                                <td th:text="${user.gender.value}"></td>
+                                                <td th:text="${user.phone}"></td>
+                                                <td th:text="${user.role.description}"></td>
                                                 <td class="actions">
                                                     <a href="">
                                                         <button type="button" class="btn btn-warning btn-sm">Update
