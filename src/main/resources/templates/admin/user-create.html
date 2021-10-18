@@ -145,7 +145,7 @@
                                                             required="required"
                                                             th:field="*{role}">
                                                         <option th:value="' '" th:text="Select"></option>
-                                                        <option th:value="role : ${}" th:text="${role}"></option>
+                                                        <option th:each="r : ${roleList}" th:value="${r.id}" th:text="${r.getDescription()}"></option>
                                                     </select>
                                                 </div>
                                             </div>
