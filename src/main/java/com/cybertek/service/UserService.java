@@ -15,5 +15,5 @@ public interface UserService {
     List<UserDTO> findAll();
 
     // delete user
-    UserDTO delete(UserDTO user);
+    void delete(UserDTO user);
 }
