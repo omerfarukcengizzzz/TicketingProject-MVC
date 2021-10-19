@@ -12,9 +12,11 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class BaseEntity {
+
     private Long id;
     private LocalDateTime insertDateTime;
     private Long insertUserID;
     private LocalDateTime lastUpdateDateTime;
     private Long lastUpdateUserID;
+
 }
