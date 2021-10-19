@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-
     // DI
     @Autowired
     UserService userService;
@@ -40,7 +39,6 @@ public class AdminController {
 
         return "/admin/user-create";
     }
-
 
 
 
