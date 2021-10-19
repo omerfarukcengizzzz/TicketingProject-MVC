@@ -75,7 +75,8 @@
                                                 <div class="form-group">
                                                     <label for="phonenumber" class="col-form-label">Phone Number</label>
                                                     <input id="phonenumber" type="tel" placeholder="phone number"
-                                                           class="form-control" pattern="^\d{10}$" th:field="*{phone}" required>
+                                                           class="form-control" pattern="^\d{10}$" th:field="*{phone}"
+                                                           required>
                                                     <div class="invalid-feedback">
                                                         Please enter 10 digit mobile number.
                                                     </div>
@@ -89,7 +90,8 @@
                                                     <label for="password" class="col-form-label">Password</label>
                                                     <input id="password" type="password" placeholder="password"
                                                            class="form-control"
-                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" th:field="*{password}" required>
+                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+                                                           th:field="*{password}" required>
                                                     <div class="invalid-feedback">
                                                         Must contain at least one number and one uppercase and lowercase
                                                         letter, and at least 4 or more characters"
@@ -104,7 +106,8 @@
                                                     <input id="repassword" type="password"
                                                            placeholder="confirm your password"
                                                            class="form-control"
-                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}" th:field="*{password}" required>
+                                                           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}"
+                                                           th:field="*{password}" required>
                                                     <div class="invalid-feedback">
                                                         Must contain at least one number and one uppercase and lowercase
                                                         letter, and at least 4 or more characters"
@@ -138,7 +141,8 @@
                                                     <label>Choose a Role</label>
                                                     <select class="custom-select" th:field="*{role}" required>
                                                         <option th:value=" ''" th:text="Select"></option>
-                                                        <option th:each="r : ${roleList}" th:value="${r.id}" th:text="${r.description}"></option>
+                                                        <option th:each="r : ${roleList}" th:value="${r.id}"
+                                                                th:text="${r.description}"></option>
                                                     </select>
                                                 </div>
                                             </div>
