@@ -20,7 +20,6 @@ public class AdminController {
     @Autowired
     RoleService roleService;
 
-
     // User Creation
     @GetMapping({"/user-create", "/user-add", "/user-initialize"})
     public String userCreate(Model model) {
