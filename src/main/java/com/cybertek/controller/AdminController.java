@@ -32,9 +32,13 @@ public class AdminController {
     }
 
     @PostMapping("/user-create/save")
-    public String saveUser(@ModelAttribute("user") UserDTO userDTO) {
+    public String saveUser(@ModelAttribute("user") UserDTO user, Model model) {
 
-        userService.save(userDTO);
+        userService.save(user);
+
+        model.addAttribute("user", new UserDTO());
+        model.addAttribute("roleList", roleService.findAll());
+        model.addAttribute("userList", userService.findAll());
 
         return "/admin/user-create";
     }
