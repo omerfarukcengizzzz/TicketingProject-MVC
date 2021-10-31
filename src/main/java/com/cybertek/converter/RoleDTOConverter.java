@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ConfigurationPropertiesBinding
-public class RoleDTOConverter implements Converter<String, Object> {
+public class RoleDTOConverter implements Converter<String, RoleDTO> {
 
     @Autowired
     RoleService roleService;
