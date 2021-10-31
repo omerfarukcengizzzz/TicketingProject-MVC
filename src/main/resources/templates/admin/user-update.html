@@ -33,7 +33,7 @@
 
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form class="needs-validation" novalidate method="post"
-                                          th:action="@{/admin/user-create/save}" th:object="${user}">
+                                          th:action="@{/admin/user-update/{id}(id = ${user.userName})}" th:object="${user}">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
