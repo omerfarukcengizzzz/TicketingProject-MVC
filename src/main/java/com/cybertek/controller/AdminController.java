@@ -43,13 +43,23 @@ public class AdminController {
 
     // User List - Update
     @GetMapping("/update/{username}")
-    public String updateUser(@PathVariable("username") String username, Model model) {
+    public String editUser(@PathVariable("username") String username, Model model) {
 
         model.addAttribute("user", userService.findByID(username));
         model.addAttribute("userList", userService.findAll());
         model.addAttribute("roleList", roleService.findAll());
 
         return "/admin/user-update";
+    }
+
+    @PostMapping("/update/{username}")
+    public String updateUser(@PathVariable("username") String username, Model model) {
+
+        model.addAttribute("user", new UserDTO());
+        model.addAttribute("roleList", roleService.findAll());
+        model.addAttribute("userList", userService.findAll());
+
+        return "/admin/user-create";
     }
 
 
