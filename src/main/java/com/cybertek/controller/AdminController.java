@@ -6,10 +6,7 @@ import com.cybertek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin")
@@ -43,6 +40,17 @@ public class AdminController {
         return "/admin/user-create";
     }
 
+
+    // User List - Update
+    @GetMapping("/update/{username}")
+    public String updateUser(@PathVariable("username") String username, Model model) {
+
+        model.addAttribute("user", userService.findByID(username));
+        model.addAttribute("userList", userService.findAll());
+        model.addAttribute("roleList", roleService.findAll());
+
+        return "/admin/user-update";
+    }
 
 
 
