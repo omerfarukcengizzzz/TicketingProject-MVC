@@ -33,7 +33,7 @@
 
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form class="needs-validation" novalidate method="post"
-                                          th:action="@{/admin/user-update/{id}(id = ${user.userName})}"
+                                          th:action="@{/admin/update/{id}(id = ${user.userName})}"
                                           th:object="${user}">
                                         <div class="row">
                                             <div class="col-sm-6 col-md-6">
@@ -204,7 +204,7 @@
                                                 <td th:text="${user.phone}"></td>
                                                 <td th:text="${user.role.description}"></td>
                                                 <td class="actions">
-                                                    <a th:href="@{/admin/user-update/{id}(id = ${user.userName})}">
+                                                    <a th:href="@{/admin/update/{id}(id = ${user.userName})}">
                                                         <button type="button" class="btn btn-warning btn-sm">Update
                                                         </button>
                                                     </a>
