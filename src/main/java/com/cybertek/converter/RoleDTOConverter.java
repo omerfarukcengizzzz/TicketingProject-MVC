@@ -8,7 +8,9 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationPropertiesBinding
+@ConfigurationPropertiesBinding // whenever the spring framework needs to convert an object from the view, it will
+                                // automatically come here because of the annotation. The Converter<S, T> is available
+                                // thanks to Spring Framework. (Source, Target)
 public class RoleDTOConverter implements Converter<String, RoleDTO> {
 
     @Autowired
