@@ -53,7 +53,9 @@ public class AdminController {
     }
 
     @PostMapping("/update/{username}")
-    public String updateUser(@PathVariable("username") String username, Model model) {
+    public String updateUser(@PathVariable("username") String username, Model model, @ModelAttribute("user") UserDTO user) {
+
+        userService.update(user);
 
         model.addAttribute("user", new UserDTO());
         model.addAttribute("roleList", roleService.findAll());
