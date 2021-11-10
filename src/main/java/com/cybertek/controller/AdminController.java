@@ -33,11 +33,14 @@ public class AdminController {
 
         userService.save(user);
 
-        model.addAttribute("user", new UserDTO());
-        model.addAttribute("roleList", roleService.findAll());
-        model.addAttribute("userList", userService.findAll());
+        /*
+           // redirect: does exactly the same thing, it calls the userCreate method
+           model.addAttribute("user", new UserDTO());
+           model.addAttribute("roleList", roleService.findAll());
+           model.addAttribute("userList", userService.findAll());
+        */
 
-        return "/admin/user-create";
+        return "redirect:/admin/user-create";
     }
 
 
