@@ -34,7 +34,7 @@ public class AdminController {
         userService.save(user);
 
         /*
-           // redirect: does exactly the same thing, it calls the userCreate method
+           // redirect: does exactly the same thing, it calls the userCreate method instead of calling the html page
            model.addAttribute("user", new UserDTO());
            model.addAttribute("roleList", roleService.findAll());
            model.addAttribute("userList", userService.findAll());
