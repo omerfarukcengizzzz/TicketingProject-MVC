@@ -17,7 +17,7 @@ public class AdminController {
     @Autowired
     RoleService roleService;
 
-    // User Creation
+    // ----------------- User Creation -----------------
     @GetMapping({"/user-create", "/user-add", "/user-initialize"})
     public String userCreate(Model model) {
 
@@ -41,7 +41,7 @@ public class AdminController {
     }
 
 
-    // User List - Update
+    // ----------------- User List - Update -----------------
     @GetMapping("/update/{username}")
     public String editUser(@PathVariable("username") String username, Model model) {
 
@@ -69,7 +69,7 @@ public class AdminController {
 
 
 
-    // Project Creation
+    // ----------------- Project Creation -----------------
     @GetMapping("/project-create")
     public String projectCreate() {
         return "/admin/project-create";
