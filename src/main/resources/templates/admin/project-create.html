@@ -32,39 +32,55 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form>
+                                    <form class="needs-validation" novalidate method="post" th:action="@{/admin/project-create/update}" th:object="${project}">
 
                                         <div class="form-row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="form-group">
 
                                                     <label for="projectName" class="col-form-label">Project Name</label>
-                                                    <input id="projectName" type="text" class="form-control">
+                                                    <input id="projectName" type="text" class="form-control" th:field="*{projectName}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter project name.
+                                                    </div>
 
                                                     <label for="projectCode" class="col-form-label">Project Code</label>
-                                                    <input id="projectCode" type="text" class="form-control">
+                                                    <input id="projectCode" type="text" class="form-control" th:field="*{projectCode}" required>
+                                                    <div class="invalid-feedback">
+                                                        Please enter project code.
+                                                    </div>
 
                                                     <label class="col-form-label">Assigned Manager</label>
-                                                    <select class="form-control">
+                                                    <select class="form-control" required="required">
                                                         <option>Select</option>
                                                     </select>
+                                                    <div class="invalid-feedback">
+                                                        Please select the assigned manager.
+                                                    </div>
 
                                                     <div class="row">
-
                                                         <div class="col-6">
                                                             <label class="col-form-label">Project Start Date</label>
-                                                            <input type="date" class="form-control">
+                                                            <input type="date" class="form-control" th:field="*{startDate}" required>
+                                                        </div>
+                                                        <div class="invalid-feedback">
+                                                            Please select project start date.
                                                         </div>
 
                                                         <div class="col-6">
                                                             <label class="col-form-label">Project End Date</label>
-                                                            <input type="date" class="form-control">
+                                                            <input type="date" class="form-control" th:field="*{endDate}" required>
                                                         </div>
-
+                                                        <div class="invalid-feedback">
+                                                            Please select project end date.
+                                                        </div>
                                                     </div>
 
                                                     <label class="col-form-label">Project Details</label>
-                                                    <textarea class="form-control" rows="3"></textarea>
+                                                    <textarea class="form-control" rows="3" th:field="*{projectDetails}" required></textarea>
+                                                    <div class="invalid-feedback">
+                                                        Please enter project details.
+                                                    </div>
 
                                                 </div>
                                             </div>
