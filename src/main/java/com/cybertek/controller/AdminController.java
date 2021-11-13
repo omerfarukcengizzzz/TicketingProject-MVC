@@ -63,6 +63,14 @@ public class AdminController {
         return "redirect:/admin/user-create";
     }
 
+    // ----------------- User List - Delete -----------------
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String username) {
+
+        userService.deleteByID(username);
+
+        return "redirect:/admin/user-create";
+    }
 
 
 
