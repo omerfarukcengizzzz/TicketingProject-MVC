@@ -15,6 +15,7 @@ public class ProjectDTO {
     private String projectName;
     private String projectCode;
     private UserDTO assignedManager;
-    private LocalDate projectStartDate;
-    private LocalDate projectEndDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private String projectDetails;
 }
