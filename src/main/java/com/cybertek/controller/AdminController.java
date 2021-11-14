@@ -92,7 +92,7 @@ public class AdminController {
     }
 
     @PostMapping("/project-create/save")
-    public String projectUpdate(@ModelAttribute("project") ProjectDTO project, Model model) {
+    public String projectUpdate(@ModelAttribute("project") ProjectDTO project) {
 
         projectService.save(project);
 
