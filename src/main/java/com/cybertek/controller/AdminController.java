@@ -91,4 +91,13 @@ public class AdminController {
         return "/admin/project-create";
     }
 
+    @PostMapping("/project-create/save")
+    public String projectUpdate(@ModelAttribute("project") ProjectDTO project, Model model) {
+
+        projectService.save(project);
+
+        return "redirect:/admin/project-create";
+    }
+
+
 }
