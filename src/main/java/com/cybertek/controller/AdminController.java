@@ -2,6 +2,7 @@ package com.cybertek.controller;
 
 import com.cybertek.dto.ProjectDTO;
 import com.cybertek.dto.UserDTO;
+import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
 import com.cybertek.service.RoleService;
 import com.cybertek.service.UserService;
@@ -95,6 +96,7 @@ public class AdminController {
     public String projectUpdate(@ModelAttribute("project") ProjectDTO project) {
 
         projectService.save(project);
+        project.setStatus(Status.OPEN);
 
         return "redirect:/admin/project-create";
     }
