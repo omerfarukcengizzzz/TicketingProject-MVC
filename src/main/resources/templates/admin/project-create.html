@@ -147,7 +147,7 @@
                                                     <td th:text="${p.status}"></td>
                                                     <td>
                                                         <button class="btn btn-warning" type="button">Update</button>
-                                                        <button class="btn btn-danger" type="button">Delete</button>
+                                                        <button th:href="@{/admin/project-delete/{id}(id = ${project.projectCode})}" class="btn btn-danger" type="button">Delete</button>
                                                         <button class="btn btn-info" type="button">Complete</button>
                                                     </td>
                                                 </tr>
