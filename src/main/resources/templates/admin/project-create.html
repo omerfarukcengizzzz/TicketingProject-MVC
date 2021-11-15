@@ -138,6 +138,7 @@
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
+
                                             <tbody>
                                                 <tr th:each="p : ${projectList}">
                                                     <td th:text="${p.projectCode}"></td>
@@ -145,10 +146,16 @@
                                                     <td th:text="${#temporals.format(p.startDate, 'MM.dd.yyyy')} + ' / ' + ${#temporals.format(p.endDate, 'MM.dd.yyyy')}"></td>
                                                     <td th:text="${p.assignedManager.firstName} + ' ' + ${p.assignedManager.lastName}"></td>
                                                     <td th:text="${p.status}"></td>
-                                                    <td>
-                                                        <button class="btn btn-warning" type="button">Update</button>
-                                                        <button th:href="@{/admin/project-delete/{id}(id = ${project.projectCode})}" class="btn btn-danger" type="button">Delete</button>
-                                                        <button class="btn btn-info" type="button">Complete</button>
+                                                    <td class="actions">
+                                                        <a class="delete-row">
+                                                            <button type="button" class="btn btn-warning btn-sm">Update</button>
+                                                        </a>
+                                                        <a th:href="@{/admin/project-delete/{id}(id = ${p.projectCode})}" class="delete-row">
+                                                            <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                                        </a>
+                                                        <a class="delete-row">
+                                                            <button type="button" class="btn btn-info btn-sm">Complete</button>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </tbody>
