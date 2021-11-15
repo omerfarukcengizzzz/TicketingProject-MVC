@@ -50,7 +50,7 @@ public class AdminController {
 
 
     // ----------------- User List - Update -----------------
-    @GetMapping("/update/{username}")
+    @GetMapping("/user-update/{username}")
     public String editUser(@PathVariable("username") String username, Model model) {
 
         model.addAttribute("user", userService.findByID(username));
@@ -60,7 +60,7 @@ public class AdminController {
         return "/admin/user-update";
     }
 
-    @PostMapping("/update/{username}")
+    @PostMapping("/user-update/{username}")
     public String updateUser(@PathVariable("username") String username, Model model, @ModelAttribute("user") UserDTO user) {
 
         userService.update(user);
