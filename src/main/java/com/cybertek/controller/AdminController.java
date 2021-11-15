@@ -69,7 +69,7 @@ public class AdminController {
     }
 
     // ----------------- User List - Delete -----------------
-    @GetMapping("/delete/{username}")
+    @GetMapping("/user-delete/{username}")
     public String deleteUser(@PathVariable("username") String username) {
 
         userService.deleteByID(username);
@@ -101,5 +101,13 @@ public class AdminController {
         return "redirect:/admin/project-create";
     }
 
+    // ----------------- Project - Delete -----------------
+    @GetMapping("/project-delete/{projectCode}")
+    public String deleteProject(@PathVariable("projectCode") String projectCode) {
+
+        projectService.deleteByID(projectCode);
+
+        return "redirect:/admin/project-create";
+    }
 
 }
