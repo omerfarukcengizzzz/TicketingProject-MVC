@@ -111,6 +111,8 @@ public class AdminController {
     @GetMapping("/project-update/{projectCode}")
     public String editProject(@PathVariable("projectCode") String projectCode, Model model) {
 
+        System.out.println(projectService.findByID(projectCode).getStatus());
+
         model.addAttribute("project", projectService.findByID(projectCode));
         model.addAttribute("managerList", userService.findAll());
         model.addAttribute("projectList", projectService.findAll());
@@ -123,7 +125,6 @@ public class AdminController {
     public String updateProject(@ModelAttribute("project") ProjectDTO project) {
 
         var status = project.getStatus();
-        System.out.println("status = " + status);
         projectService.save(project);
         project.setStatus(status);
 
