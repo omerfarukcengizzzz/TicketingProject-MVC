@@ -49,7 +49,7 @@ public class AdminController {
     }
 
 
-    // ----------------- User List - Update -----------------
+    // ----------------- User - Update -----------------
     @GetMapping("/user-update/{username}")
     public String editUser(@PathVariable("username") String username, Model model) {
 
@@ -68,7 +68,7 @@ public class AdminController {
         return "redirect:/admin/user-create";
     }
 
-    // ----------------- User List - Delete -----------------
+    // ----------------- User - Delete -----------------
     @GetMapping("/user-delete/{username}")
     public String deleteUser(@PathVariable("username") String username) {
 
@@ -76,9 +76,6 @@ public class AdminController {
 
         return "redirect:/admin/user-create";
     }
-
-
-
 
 
     // ----------------- Project Creation -----------------
@@ -109,5 +106,22 @@ public class AdminController {
 
         return "redirect:/admin/project-create";
     }
+
+    // ----------------- Project - Update -----------------
+    @GetMapping("/project-update/{projectCode}")
+    public String editProject(@PathVariable("projectCode") String projectCode, Model model) {
+
+        model.addAttribute("project", projectService.findByID(projectCode));
+
+        return "/admin/project-create";
+    }
+
+    @PostMapping("/project-update/{projectCode}")
+    public String updateProject(@PathVariable("projectCode") String projectCode) {
+
+
+        return "redirect:/admin/project-create";
+    }
+
 
 }
