@@ -112,15 +112,18 @@ public class AdminController {
     public String editProject(@PathVariable("projectCode") String projectCode, Model model) {
 
         model.addAttribute("project", projectService.findByID(projectCode));
+        model.addAttribute("managerList", userService.findAll());
+        model.addAttribute("projectList", projectService.findAll());
 
-        return "/admin/project-create";
+
+        return "/admin/project-update";
     }
 
     @PostMapping("/project-update/{projectCode}")
     public String updateProject(@PathVariable("projectCode") String projectCode) {
 
 
-        return "redirect:/admin/project-create";
+        return "/admin/project-update";
     }
 
 
