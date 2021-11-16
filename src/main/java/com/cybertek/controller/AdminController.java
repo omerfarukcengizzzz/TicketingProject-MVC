@@ -120,10 +120,14 @@ public class AdminController {
     }
 
     @PostMapping("/project-update/{projectCode}")
-    public String updateProject(@PathVariable("projectCode") String projectCode) {
+    public String updateProject(@ModelAttribute("project") ProjectDTO project) {
 
+        Status status = project.getStatus();
+        System.out.println("status = " + status);
+        projectService.save(project);
+        project.setStatus(status);
 
-        return "/admin/project-update";
+        return "redirect:/admin/project-create";
     }
 
 
