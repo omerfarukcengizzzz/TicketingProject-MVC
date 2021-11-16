@@ -122,8 +122,8 @@ public class AdminController {
     public String updateProject(@PathVariable("projectCode") String projectCode, @ModelAttribute("project") ProjectDTO project) {
 
         var status = projectService.findByID(projectCode).getStatus();
-        projectService.save(project);
         project.setStatus(status);
+        projectService.save(project);
 
         return "redirect:/admin/project-create";
     }
