@@ -122,7 +122,7 @@ public class AdminController {
     @PostMapping("/project-update/{projectCode}")
     public String updateProject(@ModelAttribute("project") ProjectDTO project) {
 
-        Status status = project.getStatus();
+        var status = project.getStatus();
         System.out.println("status = " + status);
         projectService.save(project);
         project.setStatus(status);
