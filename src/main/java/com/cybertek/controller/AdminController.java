@@ -111,20 +111,17 @@ public class AdminController {
     @GetMapping("/project-update/{projectCode}")
     public String editProject(@PathVariable("projectCode") String projectCode, Model model) {
 
-        System.out.println(projectService.findByID(projectCode).getStatus());
-
         model.addAttribute("project", projectService.findByID(projectCode));
         model.addAttribute("managerList", userService.findAll());
         model.addAttribute("projectList", projectService.findAll());
-
 
         return "/admin/project-update";
     }
 
     @PostMapping("/project-update/{projectCode}")
-    public String updateProject(@ModelAttribute("project") ProjectDTO project) {
+    public String updateProject(@PathVariable("projectCode") String projectCode, @ModelAttribute("project") ProjectDTO project) {
 
-        var status = project.getStatus();
+        var status = projectService.findByID(projectCode).getStatus();
         projectService.save(project);
         project.setStatus(status);
 
