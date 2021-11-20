@@ -107,6 +107,15 @@ public class AdminController {
         return "redirect:/admin/project-create";
     }
 
+    // ----------------- Project - Complete -----------------
+    @GetMapping("/project-complete/{projectCode}")
+    public String completeProject(@PathVariable("projectCode") String projectCode) {
+
+        projectService.findByID(projectCode).setStatus(Status.COMPLETE);
+
+        return "redirect:/admin/project-create";
+    }
+
     // ----------------- Project - Update -----------------
     @GetMapping("/project-update/{projectCode}")
     public String editProject(@PathVariable("projectCode") String projectCode, Model model) {
