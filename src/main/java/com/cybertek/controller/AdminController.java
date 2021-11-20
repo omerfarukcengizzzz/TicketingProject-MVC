@@ -84,7 +84,7 @@ public class AdminController {
 
         model.addAttribute("project", new ProjectDTO());
         model.addAttribute("projectList", projectService.findAll());
-        model.addAttribute("managerList", userService.findAll());
+        model.addAttribute("managerList", userService.findManagers());
 
         return "/admin/project-create";
     }
