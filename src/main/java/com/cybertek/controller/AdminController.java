@@ -111,7 +111,7 @@ public class AdminController {
     @GetMapping("/project-complete/{projectCode}")
     public String completeProject(@PathVariable("projectCode") String projectCode) {
 
-        projectService.findByID(projectCode).setStatus(Status.COMPLETE);
+        projectService.complete(projectService.findByID(projectCode));
 
         return "redirect:/admin/project-create";
     }
