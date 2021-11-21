@@ -132,7 +132,7 @@ public class AdminController {
 
         var status = projectService.findByID(projectCode).getStatus();
         project.setStatus(status);
-        projectService.save(project);
+        projectService.update(project);
 
         return "redirect:/admin/project-create";
     }
