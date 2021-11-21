@@ -130,8 +130,8 @@ public class AdminController {
     @PostMapping("/project-update/{projectCode}")
     public String updateProject(@PathVariable("projectCode") String projectCode, @ModelAttribute("project") ProjectDTO project) {
 
-        var status = projectService.findByID(projectCode).getStatus();
-        project.setStatus(status);
+//        var status = projectService.findByID(projectCode).getStatus();
+//        project.setStatus(status);
         projectService.update(project);
 
         return "redirect:/admin/project-create";
