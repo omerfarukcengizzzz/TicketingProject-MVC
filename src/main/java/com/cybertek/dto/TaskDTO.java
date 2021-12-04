@@ -11,8 +11,10 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class TaskDTO {
+    private Long id;
     private ProjectDTO project;
     private String taskSubject;
+    private String taskDetails;
     private UserDTO assignedEmployee;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate assignedDate;
