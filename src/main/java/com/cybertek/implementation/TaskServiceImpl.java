@@ -20,7 +20,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
     @Override
     public List<TaskDTO> findAll() {
-        return null;
+        return super.findAll();
     }
 
     @Override
