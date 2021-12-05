@@ -30,7 +30,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
     @Override
     public void deleteByID(Long id) {
-
+        super.deleteByID(id);
     }
 
     @Override
