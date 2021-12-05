@@ -35,6 +35,6 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
     @Override
     public void delete(TaskDTO obj) {
-
+        super.delete(obj);
     }
 }
