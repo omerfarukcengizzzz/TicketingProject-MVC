@@ -15,7 +15,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
     @Override
     public TaskDTO findByID(Long id) {
-        return null;
+        return super.findByID(id);
     }
 
     @Override
