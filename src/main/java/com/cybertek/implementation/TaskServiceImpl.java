@@ -25,7 +25,7 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
 
     @Override
     public void update(TaskDTO obj) {
-
+        super.update(obj.getId(), obj);
     }
 
     @Override
