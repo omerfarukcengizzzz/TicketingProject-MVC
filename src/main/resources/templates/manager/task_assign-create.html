@@ -41,7 +41,7 @@
                                                     <label>Project</label>
                                                     <select class="custom-select" required="required" th:field="*{project}">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option th:each="p : ${projectList}" th:value="${p.projectCode}" th:text="${p.projectCode + '-' + p.projectName}"></option>
+                                                        <option th:each="p : ${projectList}" th:value="${p.projectCode}" th:text="${p.projectCode + ' - ' + p.projectName}"></option>
                                                     </select>
                                                     <div class="invalid-feedback">Please choose project.</div>
                                                 </div>
