@@ -2,11 +2,13 @@ package com.cybertek.bootstrap;
 
 import com.cybertek.dto.ProjectDTO;
 import com.cybertek.dto.RoleDTO;
+import com.cybertek.dto.TaskDTO;
 import com.cybertek.dto.UserDTO;
 import com.cybertek.enums.Gender;
 import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
 import com.cybertek.service.RoleService;
+import com.cybertek.service.TaskService;
 import com.cybertek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -23,6 +25,8 @@ public class DataGenerator implements CommandLineRunner {
     UserService userService;
     @Autowired
     ProjectService projectService;
+    @Autowired
+    TaskService taskService;
 
     // Whenever the SpringBoot application will start, it will first run this method
     @Override
@@ -73,6 +77,17 @@ public class DataGenerator implements CommandLineRunner {
         projectService.save(project1);
         projectService.save(project2);
         projectService.save(project3);
+
+        // Pumping Task data objects
+        TaskDTO task1 = new TaskDTO(1L, project1, "Controller", "Request Mapping", user8, LocalDate.now().minusDays(4), Status.IN_PROGRESS);
+        TaskDTO task2 = new TaskDTO(2L, project3, "Configuration", "Database Connection", user3, LocalDate.now().minusDays(12), Status.COMPLETE);
+        TaskDTO task3 = new TaskDTO(3L, project3, "Mapping", "One-To-Many", user6, LocalDate.now().minusDays(8), Status.IN_PROGRESS);
+        TaskDTO task4 = new TaskDTO(4L, project2, "Dependency Injection", "Autowired", user7, LocalDate.now().minusDays(20), Status.UAT_TEST);
+
+        taskService.save(task1);
+        taskService.save(task2);
+        taskService.save(task3);
+        taskService.save(task4);
 
 
     }
