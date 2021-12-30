@@ -32,15 +32,16 @@
                                 <div class="panel-body">
 
                                     <!-- ------------------------FORM START----------------------------- -->
-                                    <form class="needs-validation" novalidate method="post">
+                                    <form class="needs-validation" novalidate method="post"
+                                          th:action="@{/manager/task-create}" th:object="${task}">
 
                                         <div class="row">
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Project</label>
-                                                    <select class="custom-select" required="required">
+                                                    <select class="custom-select" required="required" th:field="*{project}">
                                                         <option th:value="''" th:text="Select"></option>
-                                                        <option></option>
+                                                        <option th:each="p : ${projectList}" th:value="${p.projectCode}" th:text="${p.projectCode + '-' + p.projectName}"></option>
                                                     </select>
                                                     <div class="invalid-feedback">Please choose project.</div>
                                                 </div>
