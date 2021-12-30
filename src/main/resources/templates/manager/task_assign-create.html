@@ -33,7 +33,7 @@
 
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form class="needs-validation" novalidate method="post"
-                                          th:action="@{/manager/task-create}" th:object="${task}">
+                                          th:action="@{/manager/task-create/save}" th:object="${task}">
 
                                         <div class="row">
                                             <div class="col">
@@ -124,13 +124,14 @@
                                                     <th scope="col">Action</th>
                                                 </tr>
                                             </thead>
+
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                <tr th:each="t : ${taskList}">
+                                                    <td th:text="${t.project.projectName}"></td>
+                                                    <td th:text="${t.taskSubject}"></td>
+                                                    <td th:text="${t.assignedEmployee.firstName + '' + t.assignedEmployee.lastName}"></td>
+                                                    <td th:text="${t.assignedDate}"></td>
+                                                    <td th:text="${t.status}"></td>
                                                     <td>
                                                         <a>
                                                             <button type="button" class="btn btn-warning btn-sm" >Update
