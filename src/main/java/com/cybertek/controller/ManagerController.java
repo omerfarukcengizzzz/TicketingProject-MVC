@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -32,6 +34,14 @@ public class ManagerController {
         model.addAttribute("taskList", taskService.findAll());
 
         return "/manager/task_assign-create";
+    }
+
+    @PostMapping("/task-create/save")
+    public String saveTask(@ModelAttribute("task") TaskDTO task) {
+
+        taskService.save(task);
+
+        return "redirect:/manager/task-create";
     }
 
 }
