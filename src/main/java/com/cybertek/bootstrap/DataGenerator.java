@@ -79,10 +79,10 @@ public class DataGenerator implements CommandLineRunner {
         projectService.save(project3);
 
         // Pumping Task data objects
-        TaskDTO task1 = new TaskDTO(1L, project1, "Controller", "Request Mapping", user8, LocalDate.now().minusDays(4), Status.IN_PROGRESS);
-        TaskDTO task2 = new TaskDTO(2L, project3, "Configuration", "Database Connection", user3, LocalDate.now().minusDays(12), Status.COMPLETE);
-        TaskDTO task3 = new TaskDTO(3L, project3, "Mapping", "One-To-Many", user6, LocalDate.now().minusDays(8), Status.IN_PROGRESS);
-        TaskDTO task4 = new TaskDTO(4L, project2, "Dependency Injection", "Autowired", user7, LocalDate.now().minusDays(20), Status.UAT_TEST);
+        TaskDTO task1 = new TaskDTO(project1, "Controller", "Request Mapping", user8, LocalDate.now().minusDays(4), Status.IN_PROGRESS);
+        TaskDTO task2 = new TaskDTO(project3, "Configuration", "Database Connection", user3, LocalDate.now().minusDays(12), Status.COMPLETE);
+        TaskDTO task3 = new TaskDTO(project3, "Mapping", "One-To-Many", user6, LocalDate.now().minusDays(8), Status.IN_PROGRESS);
+        TaskDTO task4 = new TaskDTO(project2, "Dependency Injection", "Autowired", user7, LocalDate.now().minusDays(20), Status.UAT_TEST);
 
         taskService.save(task1);
         taskService.save(task2);
