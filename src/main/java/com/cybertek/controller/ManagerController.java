@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/manager")
@@ -41,6 +42,7 @@ public class ManagerController {
 
         task.setAssignedDate(LocalDate.now());
         task.setStatus(Status.OPEN);
+        task.setId(UUID.randomUUID().getMostSignificantBits());
         taskService.save(task);
 
         return "redirect:/manager/task-create";
