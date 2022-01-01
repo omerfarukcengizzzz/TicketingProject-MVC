@@ -52,7 +52,7 @@ public class ManagerController {
 
         taskService.deleteByID(id);
 
-        return "redirect:/admin/user-create";
+        return "redirect:/manager/task-create";
     }
 
 }
