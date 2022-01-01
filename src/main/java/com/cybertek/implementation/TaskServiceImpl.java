@@ -1,15 +1,21 @@
 package com.cybertek.implementation;
 
 import com.cybertek.dto.TaskDTO;
+import com.cybertek.enums.Status;
 import com.cybertek.service.TaskService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
 public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implements TaskService {
     @Override
     public TaskDTO save(TaskDTO obj) {
+
+        obj.setAssignedDate(LocalDate.now());
+        obj.setStatus(Status.OPEN);
+
         return super.save(obj.getId(), obj);
     }
 
