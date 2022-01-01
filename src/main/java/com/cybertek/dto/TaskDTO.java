@@ -5,8 +5,8 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
@@ -19,4 +19,16 @@ public class TaskDTO {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate assignedDate;
     private Status status;
+
+    public TaskDTO(ProjectDTO project, String taskSubject, String taskDetails, UserDTO assignedEmployee, LocalDate assignedDate, Status status) {
+        this.project = project;
+        this.taskSubject = taskSubject;
+        this.taskDetails = taskDetails;
+        this.assignedEmployee = assignedEmployee;
+        this.assignedDate = assignedDate;
+        this.status = status;
+
+        // the id will be automatically generated, it's gonna be unique. the type is long
+        this.id = UUID.randomUUID().getMostSignificantBits();
+    }
 }
