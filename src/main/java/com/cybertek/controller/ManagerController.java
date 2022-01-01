@@ -1,6 +1,7 @@
 package com.cybertek.controller;
 
 import com.cybertek.dto.TaskDTO;
+import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
 import com.cybertek.service.TaskService;
 import com.cybertek.service.UserService;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.time.LocalDate;
 
 @Controller
 @RequestMapping("/manager")
@@ -39,6 +42,8 @@ public class ManagerController {
     @PostMapping("/task-create/save")
     public String saveTask(@ModelAttribute("task") TaskDTO task) {
 
+        task.setAssignedDate(LocalDate.now());
+        task.setStatus(Status.OPEN);
         taskService.save(task);
 
         return "redirect:/manager/task-create";
