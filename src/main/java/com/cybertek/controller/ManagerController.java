@@ -57,5 +57,22 @@ public class ManagerController {
         return "redirect:/manager/task-create";
     }
 
+    // ----------------- Task - Update -----------------
+    @GetMapping("/task-update/{id}")
+    public String editTask(@PathVariable("id") Long id, Model model) {
+
+        model.addAttribute("task", taskService.findByID(id));
+
+        return "/manager/task-update";
+    }
+
+    @PostMapping("/task-update/{id}")
+    public String updateTask(@PathVariable("id") Long id, @ModelAttribute("task") TaskDTO task) {
+
+        taskService.update(task);
+
+        return "redirect:/manager/task-create";
+    }
+
 
 }
