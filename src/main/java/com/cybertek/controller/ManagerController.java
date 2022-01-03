@@ -62,8 +62,11 @@ public class ManagerController {
     public String editTask(@PathVariable("id") Long id, Model model) {
 
         model.addAttribute("task", taskService.findByID(id));
+        model.addAttribute("projectList", projectService.findAll());
+        model.addAttribute("employeeList", userService.findEmployees());
+        model.addAttribute("taskList", taskService.findAll());
 
-        return "/manager/task-update";
+        return "/manager/task_assign-update";
     }
 
     @PostMapping("/task-update/{id}")
