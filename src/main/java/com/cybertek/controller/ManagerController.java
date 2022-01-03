@@ -74,7 +74,7 @@ public class ManagerController {
 
         taskService.update(task);
 
-        return "redirect:/manager/task-crete";
+        return "redirect:/manager/task-create";
     }
 
 
