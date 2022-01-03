@@ -70,11 +70,11 @@ public class ManagerController {
     }
 
     @PostMapping("/task-update/{id}")
-    public String updateTask(@PathVariable("id") Long id, @ModelAttribute("task") TaskDTO task) {
+    public String updateTask(@ModelAttribute("task") TaskDTO task) {
 
         taskService.update(task);
 
-        return "redirect:/manager/task-create";
+        return "redirect:/manager/task-crete";
     }
 
 
