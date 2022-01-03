@@ -147,7 +147,7 @@
                                                 <td th:text="${p.assignedManager.firstName} + ' ' + ${p.assignedManager.lastName}"></td>
                                                 <td th:text="${p.status}"></td>
                                                 <td class="actions">
-                                                    <a th:href="@{/admin/project-update/{id}(id = ${p.projectCode})}" class="delete-row">
+                                                    <a th:href="@{/admin/project-update/{id}(id = ${p.projectCode})}">
                                                         <button type="button" class="btn btn-warning btn-sm">Update</button>
                                                     </a>
                                                     <a th:href="@{/admin/project-delete/{id}(id = ${p.projectCode})}" class="delete-row">
