@@ -36,10 +36,7 @@ public abstract class AbstractMapService<T, ID> {
 
     // update
     void update(ID id, T obj) {
-        /*  since, map.put() method checks if the given item is on the map or not
-            (if the item is there, it deletes and then puts the new one), we don't need to delete it by ourselves.
-        */
-        // delete(obj);
+        delete(obj);
         save(id, obj);
     }
 
