@@ -129,7 +129,7 @@
                                                 <tr th:each="t : ${taskList}">
                                                     <td th:text="${t.project.projectCode + ' - ' + t.project.projectName}"></td>
                                                     <td th:text="${t.taskSubject}"></td>
-                                                    <td th:text="${t.assignedEmployee.firstName + '' + t.assignedEmployee.lastName}"></td>
+                                                    <td th:text="${t.assignedEmployee.firstName + ' ' + t.assignedEmployee.lastName}"></td>
                                                     <!-- <td th:text="${#temporals.format(t.assignedDate, 'MM/dd/yyyy')}"></td> -->
                                                     <td th:text="${t.assignedDate}"></td>
                                                     <td th:text="${t.status}"></td>
