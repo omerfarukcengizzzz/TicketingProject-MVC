@@ -102,7 +102,17 @@ public class ManagerController {
                 .stream()
                 .filter(p -> p.getAssignedManager().equals(manager))
                 .map(p -> {
-                    List<TaskDTO> taskList = taskService.find
+
+                    List<TaskDTO> taskList = taskService.findTaskByManager(manager);
+                    int completeCounter = (int) taskList.stream()
+                            .filter(t -> t.getProject().equals(p) && t.getStatus() == Status.COMPLETE)
+                            .count();
+                    int incompleteCounter = (int) taskList.stream()
+                            .filter(t -> t.getProject().equals(p) && t.getStatus() != Status.COMPLETE)
+                            .count();
+
+                    return new ProjectDTO(p.getProjectName(), p.getProjectCode(), userService.findByID(p.getAssignedManager().getUserName()),
+                            p.getStartDate(), p.getEndDate(), p.getProjectDetails(), p.getStatus(), completeCounter, incompleteCounter);
                 })
                 .collect(Collectors.toList());
 
