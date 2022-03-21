@@ -70,14 +70,18 @@
                                             </thead>
 
                                             <tbody>
-                                                <tr>
+                                                <tr th:each="p : ${projectList}">
+                                                    <td th:text="${p.projectCode}"></td>
+                                                    <td th:text="${p.projectName}"></td>
+                                                    <td th:text="${p.startDate + ' / ' + p.endDate}"></td>
+                                                    <td th:text="${p.assignedManager.firstName + ' ' + p.assignedManager.lastName}"></td>
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td th:text="${p.status}"></td>
+                                                    <td>
+                                                        <a>
+                                                            <button type="button" class="btn btn-info btn-sm" >Complete</button>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
