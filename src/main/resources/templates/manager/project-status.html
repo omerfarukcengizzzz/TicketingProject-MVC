@@ -75,7 +75,7 @@
                                                     <td th:text="${p.projectName}"></td>
                                                     <td th:text="${#temporals.format(p.startDate, 'MM.dd.yyyy')} + ' / ' + ${#temporals.format(p.endDate, 'MM.dd.yyyy')}"></td>
                                                     <td th:text="${p.assignedManager.firstName + ' ' + p.assignedManager.lastName}"></td>
-                                                    <td></td>
+                                                    <td th:text="${p.unfinishedTasks + ' / ' + p.completedTasks}"></td>
                                                     <td th:text="${p.status}"></td>
                                                     <td>
                                                         <a>
