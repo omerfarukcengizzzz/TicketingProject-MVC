@@ -96,4 +96,17 @@ public class ManagerController {
         return "/manager/project-status";
     }
 
+    List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
+
+        List<ProjectDTO> list = projectService.findAll()
+                .stream()
+                .filter(p -> p.getAssignedManager().equals(manager))
+                .map(p -> {
+                    List<TaskDTO> taskList = taskService.find
+                })
+                .collect(Collectors.toList());
+
+        return list;
+    }
+
 }
