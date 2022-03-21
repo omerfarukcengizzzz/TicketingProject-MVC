@@ -87,9 +87,7 @@ public class ManagerController {
 
         UserDTO manager = userService.findByID("john@cybertek.com");
 
-        List<ProjectDTO> projects = projectService.findAll().stream()
-                .filter(p -> p.getAssignedManager().equals(manager))
-                .collect(Collectors.toList());
+        List<ProjectDTO> projects = getCountedListOfProjectDTO(manager);
 
         model.addAttribute("projectList", projects);
 
