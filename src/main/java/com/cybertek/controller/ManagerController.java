@@ -96,7 +96,7 @@ public class ManagerController {
 
     List<ProjectDTO> getCountedListOfProjectDTO(UserDTO manager) {
 
-        List<ProjectDTO> list = projectService.findAll()
+        return projectService.findAll()
                 .stream()
                 .filter(p -> p.getAssignedManager().equals(manager))
                 .map(p -> {
@@ -118,8 +118,6 @@ public class ManagerController {
 //                            p.getStartDate(), p.getEndDate(), p.getProjectDetails(), p.getStatus(), completeCounter, incompleteCounter);
                 })
                 .collect(Collectors.toList());
-
-        return list;
     }
 
 }
