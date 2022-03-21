@@ -1,5 +1,6 @@
 package com.cybertek.controller;
 
+import com.cybertek.dto.ProjectDTO;
 import com.cybertek.dto.TaskDTO;
 import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -79,7 +81,11 @@ public class ManagerController {
 
     // ----------------- Project Status -----------------
     @GetMapping("/project-status")
-    public String getProjectStatus(){
+    public String getProjectStatus(Model model){
+
+        List<ProjectDTO> projectList = projectService.findAll();
+
+        model.addAttribute("projectList", projectList);
 
         return "/manager/project-status";
     }
