@@ -1,10 +1,12 @@
 package com.cybertek.implementation;
 
 import com.cybertek.dto.TaskDTO;
+import com.cybertek.dto.UserDTO;
 import com.cybertek.service.TaskService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implements TaskService {
@@ -40,5 +42,12 @@ public class TaskServiceImpl extends AbstractMapService<TaskDTO, Long> implement
     @Override
     public void delete(TaskDTO obj) {
         super.delete(obj);
+    }
+
+    @Override
+    public List<TaskDTO> findTaskByManager(UserDTO manager) {
+        return super.findAll().stream()
+                .filter(t -> t.getProject().getAssignedManager().equals(manager))
+                .collect(Collectors.toList());
     }
 }
