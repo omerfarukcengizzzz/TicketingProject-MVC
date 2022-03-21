@@ -77,6 +77,11 @@ public class ManagerController {
         return "redirect:/manager/task-create";
     }
 
+    // ----------------- Project Status -----------------
+    @GetMapping("/project-status")
+    public String getProjectStatus(){
 
+        return "/manager/project-status";
+    }
 
 }
