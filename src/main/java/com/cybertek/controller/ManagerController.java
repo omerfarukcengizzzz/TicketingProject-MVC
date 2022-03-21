@@ -109,8 +109,13 @@ public class ManagerController {
                             .filter(t -> t.getProject().equals(p) && t.getStatus() != Status.COMPLETE)
                             .count();
 
-                    return new ProjectDTO(p.getProjectName(), p.getProjectCode(), userService.findByID(p.getAssignedManager().getUserName()),
-                            p.getStartDate(), p.getEndDate(), p.getProjectDetails(), p.getStatus(), completeCounter, incompleteCounter);
+                    p.setCompletedTasks(completeCounter);
+                    p.setUnfinishedTasks(incompleteCounter);
+
+                    return p;
+
+//                    return new ProjectDTO(p.getProjectName(), p.getProjectCode(), userService.findByID(p.getAssignedManager().getUserName()),
+//                            p.getStartDate(), p.getEndDate(), p.getProjectDetails(), p.getStatus(), completeCounter, incompleteCounter);
                 })
                 .collect(Collectors.toList());
 
