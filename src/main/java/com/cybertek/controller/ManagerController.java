@@ -91,6 +91,9 @@ public class ManagerController {
 
         model.addAttribute("projectList", projects);
 
+        projects.stream()
+                        .filter(p -> p.getUnfinishedTasks() > 0).forEach(p -> p.setStatus(Status.OPEN));
+
         return "/manager/project-status";
     }
 
