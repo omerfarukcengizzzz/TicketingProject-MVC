@@ -120,4 +120,23 @@ public class ManagerController {
                 .collect(Collectors.toList());
     }
 
+
+    // ----------------- Project - Complete -----------------
+    @GetMapping("/project-complete/{projectCode}")
+    public String completeProject(@PathVariable("projectCode") String projectCode) {
+
+        var project = projectService.findByID(projectCode);
+        var manager = project.getAssignedManager();
+        var taskList = taskService.findTaskByManager(manager);
+
+        taskList.stream()
+                .filter(t -> t.getStatus() != Status.COMPLETE)
+                        .forEach(t -> t.setStatus(Status.COMPLETE));
+
+
+        projectService.complete(projectService.findByID(projectCode));
+
+        return "redirect:/manager/project-status";
+    }
+
 }
