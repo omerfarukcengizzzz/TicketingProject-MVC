@@ -93,6 +93,8 @@ public class ManagerController {
 
         projects.stream()
                         .filter(p -> p.getUnfinishedTasks() > 0).forEach(p -> p.setStatus(Status.OPEN));
+        projects.stream()
+                        .filter(p -> p.getUnfinishedTasks() == 0 && p.getCompletedTasks() > 0).forEach(p -> p.setStatus(Status.COMPLETE));
 
         return "/manager/project-status";
     }
