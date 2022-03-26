@@ -135,9 +135,9 @@ public class ManagerController {
         var taskList = taskService.findTaskByManager(manager);
 
         taskList.stream()
-                .filter(t -> t.getStatus() != Status.COMPLETE)
+                        .filter(t -> t.getProject().getProjectCode().equals(projectCode))
+                        .filter(t -> t.getStatus() != Status.COMPLETE)
                         .forEach(t -> t.setStatus(Status.COMPLETE));
-
 
         projectService.complete(projectService.findByID(projectCode));
 
