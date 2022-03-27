@@ -139,13 +139,18 @@
                                             </thead>
 
                                             <tbody>
-                                                <tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
+                                                <tr th:each="t : ${taskList}">
+                                                    <td th:text="${t.project.projectCode + ' - ' + t.project.projectName}"></td>
+                                                    <td th:text="${t.taskSubject}"></td>
+                                                    <td th:text="${t.assignedEmployee}"></td>
+                                                    <td th:text="${t.assignedDate}"></td>
+                                                    <td th:text="${t.status.value}"></td>
+                                                    <td>
+                                                        <a th:href="@{/manager/task-update/{id}(id = ${t.id})}">
+                                                            <button type="button" class="btn btn-warning btn-sm" >Update
+                                                            </button>
+                                                        </a>
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
