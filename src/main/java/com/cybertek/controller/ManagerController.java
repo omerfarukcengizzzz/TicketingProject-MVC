@@ -92,7 +92,7 @@ public class ManagerController {
         model.addAttribute("projectList", projects);
 
         projects.stream()
-                        .filter(p -> p.getUnfinishedTasks() > 0).forEach(p -> p.setStatus(Status.OPEN));
+                        .filter(p -> p.getUnfinishedTasks() > 0).forEach(p -> p.setStatus(Status.IN_PROGRESS));
         projects.stream()
                         .filter(p -> p.getUnfinishedTasks() == 0 && p.getCompletedTasks() > 0).forEach(p -> p.setStatus(Status.COMPLETE));
 
