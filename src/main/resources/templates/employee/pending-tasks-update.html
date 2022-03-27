@@ -33,7 +33,7 @@
 
                                     <!-- ------------------------FORM START----------------------------- -->
                                     <form class="needs-validation" novalidate method="post"
-                                          th:action="@{/employee/pending-tasks/save}" th:object="${task}">
+                                          th:action="@{/employee/pending-tasks/{id}(id = ${task.id})}" th:object="${task}">
 
                                         <div class="row">
                                             <div class="col">
@@ -128,30 +128,30 @@
                                     <div class="table-responsive">
                                         <table class="table table-striped">
                                             <thead>
-                                                <tr>
-                                                    <th scope="col">Project</th>
-                                                    <th scope="col">Task Subject</th>
-                                                    <th scope="col">Assigned Employee</th>
-                                                    <th scope="col">Assigned Date</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Action</th>
-                                                </tr>
+                                            <tr>
+                                                <th scope="col">Project</th>
+                                                <th scope="col">Task Subject</th>
+                                                <th scope="col">Assigned Employee</th>
+                                                <th scope="col">Assigned Date</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
                                             </thead>
 
                                             <tbody>
-                                                <tr th:each="t : ${taskList}">
-                                                    <td th:text="${t.project.projectCode + ' - ' + t.project.projectName}"></td>
-                                                    <td th:text="${t.taskSubject}"></td>
-                                                    <td th:text="${t.assignedEmployee.firstName + ' ' + t.assignedEmployee.lastName}"></td>
-                                                    <td th:text="${#temporals.format(t.assignedDate, 'MM/dd/yyyy')}"></td>
-                                                    <td th:text="${t.status.value}"></td>
-                                                    <td>
-                                                        <a th:href="@{/employee/pending-tasks-update/{id}(id = ${t.id})}">
-                                                            <button type="button" class="btn btn-warning btn-sm" >Update
-                                                            </button>
-                                                        </a>
-                                                    </td>
-                                                </tr>
+                                            <tr th:each="t : ${taskList}">
+                                                <td th:text="${t.project.projectCode + ' - ' + t.project.projectName}"></td>
+                                                <td th:text="${t.taskSubject}"></td>
+                                                <td th:text="${t.assignedEmployee.firstName + ' ' + t.assignedEmployee.lastName}"></td>
+                                                <td th:text="${#temporals.format(t.assignedDate, 'MM/dd/yyyy')}"></td>
+                                                <td th:text="${t.status.value}"></td>
+                                                <td>
+                                                    <a th:href="@{/employee/pending-tasks-update/{id}(id = ${t.id})}">
+                                                        <button type="button" class="btn btn-warning btn-sm" >Update
+                                                        </button>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                             </tbody>
                                         </table>
                                     </div>
