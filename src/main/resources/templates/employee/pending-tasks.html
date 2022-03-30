@@ -85,7 +85,7 @@
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label>Status</label>
-                                                    <select class="custom-select" required="required" th:field="*{status}">
+                                                    <select class="custom-select" required="required" th:field="*{status}" disabled>
                                                         <option th:value="''" th:text="Select"></option>
                                                         <option th:each="s : ${statusList}" th:value="${s}" th:text="${s.value}"></option>
                                                     </select>

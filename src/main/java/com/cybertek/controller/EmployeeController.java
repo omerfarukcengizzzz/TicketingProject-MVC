@@ -38,6 +38,12 @@ public class EmployeeController {
         return "/employee/pending-tasks";
     }
 
+    @PostMapping("/pending-tasks/save")
+    public String taskStatusSave() {
+
+        return "redirect:/employee/pending-tasks";
+    }
+
     // ----------------- Task Status - Update -----------------
     @GetMapping("/pending-tasks/{id}")
     public String taskStatusUpdate(@PathVariable("id") Long id, Model model, TaskDTO taskDTO) {
