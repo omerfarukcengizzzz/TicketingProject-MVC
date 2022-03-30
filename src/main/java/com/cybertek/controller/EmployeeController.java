@@ -45,12 +45,17 @@ public class EmployeeController {
     }
 
     // ----------------- Task Status - Update -----------------
-    @GetMapping("/pending-tasks/{id}")
-    public String taskStatusUpdate(@PathVariable("id") Long id, Model model, TaskDTO taskDTO) {
+    @GetMapping("/pending-tasks-update/{projectCode}")
+    public String taskStatusUpdate(@PathVariable("projectCode") String projectCode, Model model, TaskDTO taskDTO) {
 
         model.addAttribute("task", taskDTO);
+        model.addAttribute("project", projectService.findByID(projectCode));
+        model.addAttribute("taskList", taskService.findAll());
+        model.addAttribute("projectList", projectService.findAll());
+        model.addAttribute("employeeList", userService.findEmployees());
+        model.addAttribute("statusList", Status.values());
 
-        return "/employee/pending-tasks";
+        return "/employee/pending-tasks-update";
     }
 
 
