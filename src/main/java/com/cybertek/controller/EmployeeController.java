@@ -1,5 +1,6 @@
 package com.cybertek.controller;
 
+import com.cybertek.dto.ProjectDTO;
 import com.cybertek.dto.TaskDTO;
 import com.cybertek.enums.Status;
 import com.cybertek.service.ProjectService;
@@ -8,10 +9,7 @@ import com.cybertek.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/employee")
@@ -45,17 +43,30 @@ public class EmployeeController {
     }
 
     // ----------------- Task Status - Update -----------------
-    @GetMapping("/pending-tasks-update/{projectCode}")
-    public String taskStatusUpdate(@PathVariable("projectCode") String projectCode, Model model, TaskDTO taskDTO) {
+    @GetMapping("/pending-tasks-update/{id}")
+    public String taskStatusUpdate(@PathVariable("id") Long id, Model model) {
 
-        model.addAttribute("task", taskDTO);
-        model.addAttribute("project", projectService.findByID(projectCode));
+        TaskDTO task = taskService.findByID(id);
+
+        model.addAttribute("task", task);
+        model.addAttribute("project", projectService.findAll());
         model.addAttribute("taskList", taskService.findAll());
         model.addAttribute("projectList", projectService.findAll());
         model.addAttribute("employeeList", userService.findEmployees());
         model.addAttribute("statusList", Status.values());
 
         return "/employee/pending-tasks-update";
+    }
+
+    @PostMapping("/pending-tasks-update/{id}")
+    public String taskStatusUpdateSave(@PathVariable("id") Long id, @ModelAttribute("task") TaskDTO task) {
+
+        ProjectDTO project = task.getProject();
+        projectService.save(project);
+
+        taskService.update(task);
+
+        return "redirect:/employee/pending-tasks";
     }
 
 
